@@ -1,60 +1,57 @@
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Starting to design the Frame on the first appearing window of the app.
- * Introducing our own class with initial buttons and their action handlers.
- */
-class IndexPageFrame extends JFrame {
-    public IndexPageFrame(String title) {
+/**Starting to design the Frame on the first appearing window of the app
+ * So Introducing our own class with inital buttons and their action Handlers
+ **/
+class IndexPageFrame extends JFrame
+{
+    public IndexPageFrame(String title)
+    {
         super(title);
+        setLayout(new BorderLayout());
+        // Set the content pane to a JLabel with ImageIcon as background
+        JLabel background = new JLabel(new ImageIcon("Front.jpg")); // ← put your image here
+        background.setLayout(new BoxLayout(background, BoxLayout.Y_AXIS));
+        setContentPane(background); // Set as the window's background
+        //Grid Bag
+        JPanel panel=new BackgroundPanel(".", "Front_Page.jpg");
+        //
+        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+
+        panel.add(Box.createVerticalGlue());
+        setSize(500,700);
+        JButton openAccount=CreateButton("Create Account",panel);
+        JButton withDrawalForm=CreateButton("Withdrawal Form",panel);
+        JButton DepositForm=CreateButton("Deposit Form",panel);
+        JButton interestCalculator=CreateButton("Interest Calculator",panel);
+        add(panel,BorderLayout.WEST);
+        panel.add(Box.createVerticalStrut(400));
+        setVisible(true);
+        panel.setVisible(true);
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+    }
+    JButton CreateButton(String Name,JPanel panel)
+    {
+        JButton button=new JButton(Name);
+        button.setFont( new Font("MV boli",Font.BOLD,16));
+       // button.setPreferredSize(new Dimension(10,20));
+        button.setAlignmentX(Component.LEFT_ALIGNMENT);
+        button.setMaximumSize(new Dimension(300, 50)); // Size respected
 
-        setSize(new Dimension(2000,2500));
 
-        // Panel with background image
-        JPanel panel = new Imageadd().getPanel();
-        panel.setLayout(new BorderLayout());
-
-        // button and label for front page
-        JButton button = new JButton("Start Banking");
-        JLabel label = new JLabel("CLIENT CORPORATE", SwingConstants.CENTER);
-        JLabel label1 = new JLabel("Here for a better experience in banking!", SwingConstants.CENTER);
-
-        label.setFont(new Font("", Font.BOLD, 50));
-        label.setForeground(Color.WHITE);
-        label1.setFont(new Font("",Font.PLAIN, 30));
-        label1.setForeground(Color.WHITE);
-        button.setFont(new Font("Mv Boli", Font.BOLD, 20));
-        button.setBackground(new Color(65, 193, 236));
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        // Subpanel with vertical layout to add button and label
-        JPanel subPanel = new JPanel();
-        subPanel.setLayout(new BoxLayout(subPanel, BoxLayout.Y_AXIS));
-        subPanel.setOpaque(false);
-
-        // Add spacing and components
-        subPanel.add(Box.createVerticalStrut(350));
-        label.setAlignmentX(Component.CENTER_ALIGNMENT);
-        label1.setAlignmentX(Component.CENTER_ALIGNMENT);
-        subPanel.add(label);
-        subPanel.add(label1);
-        subPanel.add(Box.createVerticalStrut(30));
-        subPanel.add(button);
-        subPanel.add(Box.createVerticalStrut(150));
-
-        button.addActionListener(e -> {});
-
-        panel.add(subPanel, BorderLayout.CENTER);
-        add(panel, BorderLayout.CENTER);
-        setVisible(true);
+        panel.add(button);
+        //
+        return button;
     }
 }
 
-public class IndexPage {
+class IndexPage
+{
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new IndexPageFrame("Index Page"));
+        new IndexPageFrame("Index Page");
+
     }
 }
