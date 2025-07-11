@@ -14,18 +14,19 @@ class IndexPageFrame extends JFrame
         JLabel background = new JLabel(new ImageIcon("Front.jpg")); // ← put your image here
         background.setLayout(new BoxLayout(background, BoxLayout.Y_AXIS));
         setContentPane(background); // Set as the window's background
-        //Grid Bag
-        JPanel panel=new BackgroundPanel(".", "Front_Page.jpg");
-        //
-        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
 
+        JPanel panel=new BackgroundPanel(".", "Front_Page.jpg");
+        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
         panel.add(Box.createVerticalGlue());
         setSize(500,700);
-        JButton openAccount=CreateButton("Create Account",panel);
-        JButton withDrawalForm=CreateButton("Withdrawal Form",panel);
-        JButton DepositForm=CreateButton("Deposit Form",panel);
-        JButton interestCalculator=CreateButton("Interest Calculator",panel);
+
+        JPanel subPanel=new JPanel();
+        subPanel.setLayout(new BoxLayout(panel,BoxLayout.X_AXIS));
+        JLabel label=new JLabel("CLIENT CORPORATE");
+        label.setFont(new Font("MV boli",Font.BOLD,16));
         add(panel,BorderLayout.WEST);
+//        subPanel.set
+    //    subPanel.add(label);
         panel.add(Box.createVerticalStrut(400));
         setVisible(true);
         panel.setVisible(true);
@@ -33,19 +34,19 @@ class IndexPageFrame extends JFrame
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     }
-    JButton CreateButton(String Name,JPanel panel)
-    {
-        JButton button=new JButton(Name);
-        button.setFont( new Font("MV boli",Font.BOLD,16));
-       // button.setPreferredSize(new Dimension(10,20));
-        button.setAlignmentX(Component.LEFT_ALIGNMENT);
-        button.setMaximumSize(new Dimension(300, 50)); // Size respected
-
-
-        panel.add(button);
-        //
-        return button;
-    }
+//    JButton CreateButton(String Name,JPanel panel)
+//    {
+//        JButton button=new JButton(Name);
+//        button.setFont( new Font("MV boli",Font.BOLD,16));
+//       // button.setPreferredSize(new Dimension(10,20));
+//        button.setAlignmentX(Component.LEFT_ALIGNMENT);
+//        button.setMaximumSize(new Dimension(300, 50)); // Size respected
+//
+//
+//        panel.add(button);
+//        //
+//        return button;
+//    }
 }
 
 class IndexPage
