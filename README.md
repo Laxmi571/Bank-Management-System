@@ -32,7 +32,7 @@ and software testing.
 
 ##  Technologies Used
 
-- Java** – Core application development
+- **Java** – Core application development
 - **Java Swing** – Graphical User Interface
 - **JDBC** – Database connectivity
 - **MySQL** – Backend database
