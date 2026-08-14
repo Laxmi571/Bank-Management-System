@@ -39,21 +39,4 @@ and software testing.
 - **SQL** – Database operations
 - **XAMPP** – Local development environment
 
-##  Application Structure
 
-The application consists of different modules for handling the major banking 
-operations:
-
-Bank Management System
-│
-├── Authentication
-│
-├── Account Management
-│   └── Create Account
-│
-├── Transactions
-│   ├── Deposit
-│   └── Withdrawal
-│
-└── Transaction Management
-    └── View Transactions
